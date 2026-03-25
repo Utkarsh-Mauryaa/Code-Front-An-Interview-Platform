@@ -2,6 +2,7 @@ import ConvexClerkProvider from "@/components/providers/ConvexClerkProvider";
 import { Show, RedirectToSignIn } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import Navbar from "@/components/Navbar";

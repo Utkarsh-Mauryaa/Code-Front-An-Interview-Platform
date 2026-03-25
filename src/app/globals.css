@@ -186,6 +186,12 @@
   --sidebar-ring: oklch(0.38 0.189 293.745);
 }
 
+.str-video__video-preview-container,
+.str-video__video-preview-container > div {
+    width:100% !important;
+    height: 100% !important;
+}
+
 
 @layer base {
   * {
