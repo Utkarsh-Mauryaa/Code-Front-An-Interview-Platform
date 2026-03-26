@@ -31,7 +31,7 @@ const StreamClientProvider = ({children}: {children: ReactNode}) => {
 
         return () => { client.disconnectUser(); }; // enclosed in {} because useEffect's cleanup expects to return void but this disconnectUser returns a promise
 
-    }, [user, isLoaded]);
+    }, [user?.id, isLoaded]);
 
     if(!streamVideoClient) return <LoaderUI/>
 
