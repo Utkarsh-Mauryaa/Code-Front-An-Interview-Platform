@@ -4,49 +4,45 @@ import { useRouter } from "next/navigation";
 import { api } from "../../convex/_generated/api";
 import { Button } from "./ui/button";
 import toast from "react-hot-toast";
-
+import { PhoneOffIcon } from "lucide-react";
 
 function EndCallButton() {
-    const call = useCall();
+  const call = useCall();
+  const router = useRouter();
+  const { useLocalParticipant } = useCallStateHooks();
+  const localParticipant = useLocalParticipant();
 
-    const router = useRouter();
-    const { useLocalParticipant } = useCallStateHooks();
-    const localParticipant = useLocalParticipant(); // Returns: An object representing you (the person currently looking at the screen).
-    // Purpose: It contains your userId, which we need to check if you are the boss of this meeting.
+  const updateInterviewStatus = useMutation(api.interviews.updateInterviewStatus);
+  const interview = useQuery(api.interviews.getInterviewByStreamCallId, {
+    streamCallId: call?.id || "",
+  });
 
-    const updateInterviewStatus = useMutation(api.interviews.updateInterviewStatus);
+  if (!call || !interview) return null;
 
-    const interview = useQuery(api.interviews.getInterviewByStreamCallId, {
-        streamCallId: call?.id || "",
-    });
+  const isMeetingOwner = localParticipant?.userId === call?.state?.createdBy?.id;
+  if (!isMeetingOwner) return null;
 
-    if (!call || !interview) return null;
-
-    const isMeetingOwner = localParticipant?.userId === call?.state?.createdBy?.id;
-
-    if (!isMeetingOwner) return null;
-
-    const endCall = async () => {
-
-        try {
-            await call.endCall();
-            await updateInterviewStatus({
-                id: interview._id,
-                status: "completed",
-            });
-            router.push("/");
-            toast.success("Meeting ended for everyone!")
-        } catch (error) {
-            console.log(error);
-            toast.error("Failed to end meeting!")
-        }
+  const endCall = async () => {
+    try {
+      await call.endCall();
+      await updateInterviewStatus({ id: interview._id, status: "completed" });
+      router.push("/");
+      toast.success("Meeting ended for everyone!");
+    } catch (error) {
+      console.log(error);
+      toast.error("Failed to end meeting!");
     }
+  };
 
-    return (
-        <Button onClick={endCall}>
-            End Call
-        </Button>
-    )
+  return (
+    <Button
+      onClick={endCall}
+      className="h-10 px-4 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 hover:text-red-300 border border-red-500/20 hover:border-red-500/40 transition-all duration-200 gap-2 text-sm font-medium"
+    >
+      <PhoneOffIcon className="size-4" />
+      End Call
+    </Button>
+  );
 }
 
-export default EndCallButton
+export default EndCallButton;
