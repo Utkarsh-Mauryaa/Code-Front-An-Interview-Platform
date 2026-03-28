@@ -30,23 +30,26 @@ function RecordingsPage() {
   if (isLoading) return <LoaderUI />;
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white">
-      <div className="container max-w-7xl mx-auto px-6 py-10">
+    // overflow-hidden stops the page itself from scrolling
+    <div className="h-[calc(100vh-70px)] flex flex-col overflow-hidden">
 
-        {/* Header */}
+      {/* Header — fixed height, never scrolls */}
+      <div className="container max-w-7xl mx-auto px-6 pt-10 pb-4 shrink-0">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="mb-8"
         >
-          <h1 className="text-3xl font-bold tracking-tight text-white">Recordings</h1>
-          <p className="text-slate-500 mt-1 text-sm">
+          <h1 className="text-4xl font-bold tracking-tight text-white">Recordings</h1>
+          <p className="text-slate-500 mt-1 text-[17px]">
             {recordings.length} {recordings.length === 1 ? "recording" : "recordings"} available
           </p>
         </motion.div>
+      </div>
 
-        <ScrollArea className="h-[calc(100vh-12rem)]">
+      {/* ScrollArea takes all remaining height — only this scrolls */}
+      <div className="flex-1 overflow-hidden container max-w-7xl mx-auto px-6">
+        <ScrollArea className="h-full">
           {recordings.length > 0 ? (
             <motion.div
               initial={{ opacity: 0 }}

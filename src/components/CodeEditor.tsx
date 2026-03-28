@@ -42,7 +42,7 @@ function CodeEditor() {
                   <h2 className="text-xl font-semibold tracking-tight text-white">
                     {selectedQuestion.title}
                   </h2>
-                  <p className="text-xs text-slate-500 tracking-wide uppercase">
+                  <p className="text-[17px] text-slate-500 tracking-wide">
                     Choose your language and solve the problem
                   </p>
                 </div>
@@ -107,7 +107,7 @@ function CodeEditor() {
                     <span className="text-sm font-medium text-white">Problem Description</span>
                   </div>
                   <div className="px-5 py-4 text-sm text-slate-400 leading-relaxed">
-                    <p className="whitespace-pre-line">{selectedQuestion.description}</p>
+                    <p className="whitespace-pre-line" style={{fontFamily: 'sans-serif'}}>{selectedQuestion.description}</p>
                   </div>
                 </motion.div>
 
@@ -129,11 +129,11 @@ function CodeEditor() {
                       <div className="p-4 space-y-4">
                         {selectedQuestion.examples.map((example, index) => (
                           <div key={index} className="space-y-2">
-                            <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                            <p className="text-xs font-medium text-slate-500 tracking-wider">
                               Example {index + 1}
                             </p>
                             <ScrollArea className="w-full">
-                              <pre className="bg-[#0a0a0f] border border-white/8 p-3.5 rounded-xl text-xs font-mono text-slate-300 leading-relaxed">
+                              <pre className="bg-[#0a0a0f] border border-white/8 p-3.5 rounded-xl text-xs font-mono text-slate-300 leading-relaxed" style={{fontFamily: 'sans-serif'}}>
                                 <div><span className="text-amber-400/70">Input:</span> {example.input}</div>
                                 <div><span className="text-amber-400/70">Output:</span> {example.output}</div>
                                 {example.explanation && (
@@ -160,13 +160,13 @@ function CodeEditor() {
                     transition={{ delay: 0.3, duration: 0.35 }}
                     className="rounded-2xl border border-white/8 bg-[#13131e] overflow-hidden"
                   >
-                    <div className="flex items-center gap-2.5 px-5 py-3.5 border-b border-white/8">
+                    <div className="flex items-center gap-2.5 px-5 py-3.5 border-b border-white/8" style={{fontFamily: 'sans-serif'}}>
                       <div className="p-1.5 rounded-lg bg-blue-400/10">
                         <AlertCircleIcon className="h-3.5 w-3.5 text-blue-400" />
                       </div>
                       <span className="text-sm font-medium text-white">Constraints</span>
                     </div>
-                    <div className="px-5 py-4">
+                    <div className="px-5 py-4" style={{fontFamily: 'sans-serif'}}>
                       <ul className="space-y-2">
                         {selectedQuestion.constraints.map((constraint, index) => (
                           <li key={index} className="flex items-start gap-2 text-sm text-slate-400">

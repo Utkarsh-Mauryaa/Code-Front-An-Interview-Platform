@@ -49,18 +49,18 @@ const Navbar = () => {
 
                     <div className="flex flex-col leading-none gap-2">
                         <span
-                            className="font-black text-[19px] tracking-[-0.02em]"
+                            className="font-black text-[20px] tracking-[-0.02em]"
                             style={{
                                 background: "linear-gradient(135deg, #fcd34d 0%, #fbbf24 45%, #f59e0b 100%)",
                                 WebkitBackgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
                                 backgroundClip: "text",
-                                fontFamily: "var(--font-geist-mono), monospace",
+                                fontFamily: "var(--font-berkshire-swash), monospace",
                             }}
                         >
                             CodeSync
                         </span>
-                        <span className="text-[9px] tracking-[0.18em] text-zinc-600 uppercase font-medium">
+                        <span className="text-[15px] tracking-[0.18em] text-zinc-600 font-medium">
                             Interview Platform
                         </span>
                     </div>

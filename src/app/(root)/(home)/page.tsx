@@ -90,7 +90,7 @@ export default function Home() {
                     <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div className="space-y-2">
                             <p
-                                className="text-[10px] font-bold tracking-[0.22em] uppercase"
+                                className="text-[16px] font-bold tracking-[0.22em]"
                                 style={{ color: "rgba(251,191,36,0.65)" }}
                             >
                                 {isInterviewer ? "Interviewer Dashboard" : "Candidate Portal"}
@@ -116,7 +116,7 @@ export default function Home() {
                                 >.</span>
                             </h1>
 
-                            <p className="text-[13px] text-zinc-500 max-w-md leading-relaxed pt-1">
+                            <p className="text-[17px] text-zinc-500 max-w-md leading-relaxed pt-1">
                                 {isInterviewer
                                     ? "Manage your interviews and review candidates effectively"
                                     : "Access your upcoming interviews and prepare with confidence"}
@@ -137,7 +137,7 @@ export default function Home() {
                                 animate={{ opacity: [1, 0.4, 1] }}
                                 transition={{ duration: 2, repeat: Infinity }}
                             />
-                            <span className="text-[12px] font-semibold tracking-wide" style={{ color: "rgba(251,191,36,0.90)" }}>
+                            <span className="text-[17px] font-semibold tracking-wide" style={{ color: "rgba(251,191,36,0.90)" }}>
                                 System Online
                             </span>
                         </div>
@@ -155,7 +155,7 @@ export default function Home() {
                             className="flex items-center gap-3"
                         >
                             <p
-                                className="text-[10px] font-bold tracking-[0.18em] uppercase"
+                                className="text-[20px] font-bold tracking-[0.18em]"
                                 style={{ color: "rgba(255,255,255,0.20)" }}
                             >
                                 Quick Actions

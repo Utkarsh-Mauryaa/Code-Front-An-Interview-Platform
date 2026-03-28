@@ -111,8 +111,8 @@ function InterviewScheduleUI() {
           className="flex items-center justify-between"
         >
           <div>
-            <h1 className="text-3xl font-bold tracking-tight text-white">Interviews</h1>
-            <p className="text-slate-500 mt-1 text-sm">Schedule and manage technical interviews</p>
+            <h1 className="text-[35px] font-bold tracking-tight text-white">Interviews</h1>
+            <p className="text-slate-500 mt-1 text-[19px]">Schedule and manage technical interviews</p>
           </div>
 
           <Dialog open={open} onOpenChange={setOpen}>
@@ -131,7 +131,7 @@ function InterviewScheduleUI() {
               <div className="space-y-5 py-2">
                 {/* Title */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-slate-400 uppercase tracking-wider">Title</label>
+                  <label className="text-[15px] font-medium text-slate-400 tracking-wider">Title</label>
                   <Input
                     placeholder="e.g. Frontend Engineering Round 1"
                     value={formData.title}
@@ -142,7 +142,7 @@ function InterviewScheduleUI() {
 
                 {/* Description */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-slate-400 uppercase tracking-wider">Description</label>
+                  <label className="text-[15px] font-medium text-slate-400 tracking-wider">Description</label>
                   <Textarea
                     placeholder="Topics to cover, notes for interviewers..."
                     value={formData.description}
@@ -153,7 +153,7 @@ function InterviewScheduleUI() {
 
                 {/* Candidate */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-slate-400 uppercase tracking-wider">Candidate</label>
+                  <label className="text-[15px] font-medium text-slate-400 tracking-wider">Candidate</label>
                   <Select value={formData.candidateId} onValueChange={(candidateId) => setFormData({ ...formData, candidateId })}>
                     <SelectTrigger className="bg-[#0a0a0f] border-white/10 text-white rounded-xl h-10 hover:border-amber-400/40 transition-colors">
                       <SelectValue placeholder="Select candidate" />
@@ -170,7 +170,7 @@ function InterviewScheduleUI() {
 
                 {/* Interviewers */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-slate-400 uppercase tracking-wider">Interviewers</label>
+                  <label className="text-[15px] font-medium text-slate-400 tracking-wider">Interviewers</label>
                   <div className="flex flex-wrap gap-2 mb-2">
                     <AnimatePresence>
                       {selectedInterviewers.map((interviewer) => (
@@ -213,7 +213,7 @@ function InterviewScheduleUI() {
                 {/* Date + Time */}
                 <div className="flex gap-4 items-start">
                   <div className="space-y-1.5 flex-1">
-                    <label className="text-xs font-medium text-slate-400 uppercase tracking-wider">Date</label>
+                    <label className="text-xs font-medium text-slate-400 tracking-wider">Date</label>
                     <div className="rounded-xl border border-white/10 bg-[#0a0a0f] overflow-hidden">
                       <Calendar
                         mode="single"
@@ -226,7 +226,7 @@ function InterviewScheduleUI() {
                   </div>
 
                   <div className="space-y-1.5 w-[130px]">
-                    <label className="text-xs font-medium text-slate-400 uppercase tracking-wider">Time</label>
+                    <label className="text-xs font-medium text-slate-400 tracking-wider">Time</label>
                     <Select value={formData.time} onValueChange={(time) => setFormData({ ...formData, time })}>
                       <SelectTrigger className="bg-[#0a0a0f] border-white/10 text-white rounded-xl h-10 hover:border-amber-400/40 transition-colors">
                         <SelectValue placeholder="Select time" />

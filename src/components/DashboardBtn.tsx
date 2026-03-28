@@ -33,7 +33,7 @@ function DashboardBtn() {
             >
                 <SparklesIcon className="size-3.5 text-amber-400" strokeWidth={1.8} />
                 <span
-                    className="text-[12px] font-bold tracking-wide"
+                    className="text-[16px] font-bold tracking-wide"
                     style={{ color: "rgba(251,191,36,0.90)" }}
                 >
                     Dashboard

@@ -77,7 +77,7 @@ function CommentDialog({ interviewId }: { interviewId: Id<"interviews"> }) {
           <div className="flex items-center justify-between">
             <DialogTitle className="text-base font-semibold text-white">Interview Feedback</DialogTitle>
             {existingComments.length > 0 && (
-              <Badge className="bg-amber-400/10 text-amber-400 border-amber-400/20 text-xs rounded-lg">
+              <Badge className="bg-amber-400/10 text-amber-400 border-amber-400/20 text-[17px] rounded-lg mr-5">
                 {existingComments.length} comment{existingComments.length !== 1 ? "s" : ""}
               </Badge>
             )}
@@ -93,7 +93,7 @@ function CommentDialog({ interviewId }: { interviewId: Id<"interviews"> }) {
                 animate={{ opacity: 1 }}
                 className="space-y-3"
               >
-                <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Previous Feedback</p>
+                <p className="text-[15px] font-medium text-slate-500 tracking-wider">Previous Feedback</p>
                 <ScrollArea className="h-[220px] pr-1">
                   <div className="space-y-3">
                     {existingComments.map((c, index) => {
@@ -113,15 +113,15 @@ function CommentDialog({ interviewId }: { interviewId: Id<"interviews"> }) {
                                 <AvatarFallback className="bg-amber-400/10 text-amber-400 text-xs">{interviewer.initials}</AvatarFallback>
                               </Avatar>
                               <div>
-                                <p className="text-xs font-medium text-white">{interviewer.name}</p>
-                                <p className="text-[10px] text-slate-500">
+                                <p className="text-[15px] font-medium text-white">{interviewer.name}</p>
+                                <p className="text-[13px] text-slate-500">
                                   {format(c._creationTime, "MMM d, yyyy · h:mm a")}
                                 </p>
                               </div>
                             </div>
                             {renderStars(c.rating)}
                           </div>
-                          <p className="text-xs text-slate-400 leading-relaxed">{c.content}</p>
+                          <p className="text-[14px] text-slate-400 leading-relaxed">{c.content}</p>
                         </motion.div>
                       );
                     })}
@@ -136,7 +136,7 @@ function CommentDialog({ interviewId }: { interviewId: Id<"interviews"> }) {
 
           {/* New comment form */}
           <div className="space-y-4">
-            <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Your Feedback</p>
+            <p className="text-[15px] font-medium text-slate-500 tracking-wider">Your Feedback</p>
 
             {/* Rating */}
             <div className="space-y-1.5">

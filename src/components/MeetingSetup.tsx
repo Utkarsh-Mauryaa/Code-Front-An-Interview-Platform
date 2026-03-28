@@ -33,7 +33,7 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] flex items-center justify-center p-6">
+    <div className="h-[calc(100vh-70px)] bg-[#0a0a0f] flex items-center justify-center p-6">
       {/* Subtle background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-amber-400/3 rounded-full blur-3xl" />
@@ -55,7 +55,7 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
             className="bg-[#13131e] border border-white/8 rounded-2xl p-6 flex flex-col"
           >
             <div className="mb-4">
-              <h1 className="text-lg font-semibold text-white">Camera Preview</h1>
+              <h1 className="text-[19px] font-semibold text-white">Camera Preview</h1>
               <p className="text-xs text-slate-500 mt-0.5">Make sure you look good!</p>
             </div>
 
