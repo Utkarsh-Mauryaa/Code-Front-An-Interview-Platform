@@ -60,10 +60,10 @@ function MeetingModal({ isOpen, onClose, title, isJoinMeeting }: MeetingModalPro
                                     }
                                 </div>
                                 <div>
-                                    <DialogTitle className="text-[15px] font-bold tracking-[-0.01em] text-zinc-100">
+                                    <DialogTitle className="text-[20px] font-bold tracking-[-0.01em] text-zinc-100">
                                         {title}
                                     </DialogTitle>
-                                    <p className="text-[11px] text-zinc-600 mt-0.5">
+                                    <p className="text-[17px] text-zinc-600 mt-0.5">
                                         {isJoinMeeting ? "Paste your invite link below" : "A new call will be created instantly"}
                                     </p>
                                 </div>

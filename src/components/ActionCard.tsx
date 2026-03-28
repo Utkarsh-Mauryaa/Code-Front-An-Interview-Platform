@@ -56,11 +56,11 @@ const ActionCard = ({ action, onClick }: { action: QuickActionType; onClick: () 
                 {/* text */}
                 <div className="space-y-1.5">
                     <h3
-                        className="font-bold text-[15px] tracking-[-0.01em] text-zinc-100 group-hover:text-amber-300 transition-colors duration-200"
+                        className="font-bold text-[25px] tracking-[-0.01em] text-zinc-100 group-hover:text-amber-300 transition-colors duration-200"
                     >
                         {action.title}
                     </h3>
-                    <p className="text-[12px] leading-relaxed text-zinc-500">
+                    <p className="text-[16px] leading-relaxed text-zinc-500">
                         {action.description}
                     </p>
                 </div>

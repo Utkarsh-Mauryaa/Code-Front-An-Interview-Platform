@@ -91,7 +91,7 @@ function MeetingCard({ interview }: { interview: Interview }) {
 
                 {/* header: date + status badge */}
                 <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-2 text-[11px] text-zinc-500 font-medium tracking-wide">
+                    <div className="flex items-center gap-2 text-[15px] text-zinc-500 font-medium tracking-wide">
                         <CalendarIcon className="w-3.5 h-3.5 shrink-0" strokeWidth={1.8} />
                         {formattedDate}
                     </div>
@@ -109,7 +109,7 @@ function MeetingCard({ interview }: { interview: Interview }) {
                             />
                         )}
                         <cfg.Icon className="w-3 h-3" style={{ color: cfg.textColor }} strokeWidth={2} />
-                        <span className="text-[10px] font-bold tracking-wide uppercase" style={{ color: cfg.textColor }}>
+                        <span className="text-[14px] font-bold tracking-wide" style={{ color: cfg.textColor }}>
                             {cfg.label}
                         </span>
                     </div>
@@ -118,13 +118,13 @@ function MeetingCard({ interview }: { interview: Interview }) {
                 {/* title + description */}
                 <div className="space-y-2 flex-1">
                     <h3
-                        className="font-bold text-[15px] tracking-[-0.01em] leading-snug"
+                        className="font-bold text-[24px] tracking-[-0.01em] leading-snug"
                         style={{ color: status === "completed" ? "rgba(255,255,255,0.45)" : "#f0f0f4" }}
                     >
                         {interview.title}
                     </h3>
                     {interview.description && (
-                        <p className="text-[12px] leading-relaxed text-zinc-600 line-clamp-2">
+                        <p className="text-[15px] leading-relaxed text-zinc-600 line-clamp-2">
                             {interview.description}
                         </p>
                     )}
@@ -144,7 +144,7 @@ function MeetingCard({ interview }: { interview: Interview }) {
 
                 {status === "upcoming" && (
                     <div
-                        className="w-full py-2.5 rounded-xl text-[12px] font-semibold tracking-wide text-center"
+                        className="w-full py-2.5 rounded-xl text-[17px] font-semibold tracking-wide text-center"
                         style={{
                             background: "rgba(255,255,255,0.03)",
                             border: "1px solid rgba(255,255,255,0.07)",

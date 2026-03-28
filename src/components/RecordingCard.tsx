@@ -87,11 +87,11 @@ function RecordingCard({ recording }: { recording: CallRecording }) {
             {/* info */}
             <div className="p-4 flex flex-col gap-3 flex-1">
                 <div className="space-y-1.5">
-                    <div className="flex items-center gap-2 text-[11px] text-zinc-500">
+                    <div className="flex items-center gap-2 text-[17px] text-zinc-500">
                         <CalendarIcon className="h-3.5 w-3.5 shrink-0" strokeWidth={1.8} />
                         <span>{formattedStartTime}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-[11px] text-zinc-500">
+                    <div className="flex items-center gap-2 text-[14px] text-zinc-500">
                         <ClockIcon className="h-3.5 w-3.5 shrink-0" strokeWidth={1.8} />
                         <span>{duration}</span>
                     </div>
@@ -102,7 +102,7 @@ function RecordingCard({ recording }: { recording: CallRecording }) {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.97 }}
                         onClick={() => window.open(recording.url, "_blank")}
-                        className="btn-emerald flex-1 py-2 rounded-xl text-[12px] tracking-wide flex items-center justify-center gap-2"
+                        className="btn-emerald flex-1 py-2 rounded-xl text-[14px] tracking-wide flex items-center justify-center gap-2"
                     >
                         <PlayIcon className="size-3.5" />
                         Play Recording

@@ -57,7 +57,7 @@ function DashboardPage() {
           className="flex items-center justify-between"
         >
           <div>
-            <h1 className="text-3xl font-bold tracking-tight text-white">Dashboard</h1>
+            <h1 className="text-7xl font-bold tracking-tight text-white">Dashboard</h1>
             <p className="text-slate-500 mt-1 text-sm">Track and manage all interview sessions</p>
           </div>
           <Link href="/schedule">
@@ -109,18 +109,18 @@ function DashboardPage() {
                                   </AvatarFallback>
                                 </Avatar>
                                 <div>
-                                  <p className="text-sm font-semibold text-white">{candidateInfo.name}</p>
-                                  <p className="text-xs text-slate-500 mt-0.5">{interview.title}</p>
+                                  <p className="text-xl font-semibold text-white">{candidateInfo.name}</p>
+                                  <p className="text-[16px] text-slate-500 mt-0.5">{interview.title}</p>
                                 </div>
                               </div>
-                              <span className={`text-[10px] font-medium px-2 py-1 rounded-lg border ${statusColors[interview.status] || "bg-slate-400/10 text-slate-400 border-slate-400/20"}`}>
+                              <span className={`text-[14px] font-medium px-2 py-1 rounded-lg border ${statusColors[interview.status] || "bg-slate-400/10 text-slate-400 border-slate-400/20"}`}>
                                 {interview.status}
                               </span>
                             </div>
                           </CardHeader>
 
                           <CardContent className="px-5 pb-4">
-                            <div className="flex items-center gap-4 text-xs text-slate-500">
+                            <div className="flex items-center gap-4 text-[15px] text-slate-500">
                               <div className="flex items-center gap-1.5">
                                 <CalendarIcon className="h-3.5 w-3.5" />
                                 {format(startTime, "MMM dd, yyyy")}
