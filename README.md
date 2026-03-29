@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Remote Interview Platform
 
-## Getting Started
+A full-stack, real-time interview platform that enables seamless collaboration between interviewers and candidates. Built to simulate real-world hiring workflows with scheduling, live video communication, and structured evaluation.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌐 Live Demo  
+👉 https://code-front-an-interview-platform.vercel.app/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📌 Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This platform allows interviewers to schedule and conduct interviews while candidates can join sessions, interact in real time, and showcase their skills. It supports multi-user video calls, screen sharing, and post-interview evaluation — all in a clean, modern UI.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ✨ Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔐 Role-Based Authentication
+- Secure authentication using **Clerk**
+- Two roles:
+  - **Interviewer**
+  - **Candidate**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### 📅 Interview Scheduling
+- Create and manage interview sessions
+- Select multiple candidates
+- Invite multiple interviewers (panel interviews)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🎥 Real-Time Communication
+- Multi-user **video + audio calling**
+- Low-latency real-time interaction
+- Designed for scalability and smooth UX
+
+#### Controls:
+- 🎤 Mute / Unmute
+- 📷 Camera On / Off  
+- 🖥️ Screen Sharing
+
+---
+
+### 👥 Multi-Participant Support
+- Multiple interviewers and candidates in a single session
+- Enables panel interviews and group discussions
+
+---
+
+### 📼 Recording System
+- Record interview sessions
+- Playback available for interviewer review
+
+---
+
+### 📝 Evaluation & Feedback
+- Mark candidates as:
+  - ✅ Pass  
+  - ❌ Fail  
+- ⭐ Provide star ratings
+- 💬 Add comments/feedback
+
+---
+
+## 🧠 Tech Stack
+
+### Frontend
+- **Next.js (App Router)**
+- **Tailwind CSS**
+- **shadcn/ui**
+- **Framer Motion**
+
+### Backend & Database
+- **Convex (Real-time backend + database)**
+
+### Authentication
+- **Clerk**
+
+---
+
+## ⚙️ System Design Highlights
+
+- Real-time state synchronization across multiple participants
+- Event-driven architecture using Convex
+- Scalable multi-user session handling
+- Clean separation of concerns (UI, logic, backend)
+
+---
+
+
+## 🤝 Contributing
+
+Pull requests and suggestions are welcome.
+
