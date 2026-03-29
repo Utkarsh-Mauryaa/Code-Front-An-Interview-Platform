@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation"
 import MeetingModal from "@/components/MeetingModal"
 import LoaderUI from "@/components/LoaderUI"
 import MeetingCard from "@/components/MeetingCard"
+import RoleSelection from "@/components/RoleSelection"
 import { motion } from "framer-motion"
 
 const fadeUp = {
@@ -23,7 +24,7 @@ const stagger = {
 
 export default function Home() {
     const router = useRouter()
-    const { isInterviewer, isLoading } = useUserRole()
+    const { isInterviewer, isLoading, isPending } = useUserRole()
     const interviews = useQuery(api.interviews.getMyInterviews)
     const [showModel, setShowModel] = useState(false)
     const [modelType, setModelType] = useState<"start" | "join">()
@@ -36,7 +37,11 @@ export default function Home() {
         }
     }
 
+    // loading state
     if (isLoading) return <LoaderUI />
+
+    // role not yet selected — show role picker
+    if (isPending) return <RoleSelection />
 
     return (
         <div className="relative min-h-[calc(100vh-68px)] overflow-hidden">
@@ -74,10 +79,7 @@ export default function Home() {
                         boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06), 0 24px 64px rgba(0,0,0,0.35)",
                     }}
                 >
-                    {/* shimmer top line */}
                     <div className="shimmer-line absolute top-0 left-0 right-0 h-[1.5px]" />
-
-                    {/* bg bloom */}
                     <div
                         className="pointer-events-none absolute -top-16 -left-16 w-72 h-72 rounded-full blur-3xl"
                         style={{ background: "rgba(251,191,36,0.07)" }}
@@ -90,7 +92,7 @@ export default function Home() {
                     <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div className="space-y-2">
                             <p
-                                className="text-[16px] font-bold tracking-[0.22em]"
+                                className="text-[10px] font-bold tracking-[0.22em] uppercase"
                                 style={{ color: "rgba(251,191,36,0.65)" }}
                             >
                                 {isInterviewer ? "Interviewer Dashboard" : "Candidate Portal"}
@@ -106,24 +108,21 @@ export default function Home() {
                                 }}
                             >
                                 Welcome back
-                                <span
-                                    style={{
-                                        background: "linear-gradient(135deg, #fcd34d, #f59e0b)",
-                                        WebkitBackgroundClip: "text",
-                                        WebkitTextFillColor: "transparent",
-                                        backgroundClip: "text",
-                                    }}
-                                >.</span>
+                                <span style={{
+                                    background: "linear-gradient(135deg, #fcd34d, #f59e0b)",
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent",
+                                    backgroundClip: "text",
+                                }}>.</span>
                             </h1>
 
-                            <p className="text-[17px] text-zinc-500 max-w-md leading-relaxed pt-1">
+                            <p className="text-[13px] text-zinc-500 max-w-md leading-relaxed pt-1">
                                 {isInterviewer
                                     ? "Manage your interviews and review candidates effectively"
                                     : "Access your upcoming interviews and prepare with confidence"}
                             </p>
                         </div>
 
-                        {/* stat pill */}
                         <div
                             className="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl self-start sm:self-auto"
                             style={{
@@ -137,7 +136,7 @@ export default function Home() {
                                 animate={{ opacity: [1, 0.4, 1] }}
                                 transition={{ duration: 2, repeat: Infinity }}
                             />
-                            <span className="text-[17px] font-semibold tracking-wide" style={{ color: "rgba(251,191,36,0.90)" }}>
+                            <span className="text-[12px] font-semibold tracking-wide" style={{ color: "rgba(251,191,36,0.90)" }}>
                                 System Online
                             </span>
                         </div>
@@ -154,10 +153,7 @@ export default function Home() {
                             transition={{ duration: 0.4, delay: 0.12 }}
                             className="flex items-center gap-3"
                         >
-                            <p
-                                className="text-[20px] font-bold tracking-[0.18em]"
-                                style={{ color: "rgba(255,255,255,0.20)" }}
-                            >
+                            <p className="text-[10px] font-bold tracking-[0.18em] uppercase" style={{ color: "rgba(255,255,255,0.20)" }}>
                                 Quick Actions
                             </p>
                             <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
@@ -175,10 +171,7 @@ export default function Home() {
                                     variants={fadeUp}
                                     transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
                                 >
-                                    <ActionCard
-                                        action={action}
-                                        onClick={() => handleQuickAction(action.title)}
-                                    />
+                                    <ActionCard action={action} onClick={() => handleQuickAction(action.title)} />
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -192,33 +185,20 @@ export default function Home() {
                     </>
                 ) : (
                     /* CANDIDATE — INTERVIEWS LIST */
-                    <motion.div
-                        variants={stagger}
-                        initial="hidden"
-                        animate="show"
-                        className="space-y-7"
-                    >
+                    <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-7">
                         <motion.div
                             variants={fadeUp}
                             transition={{ duration: 0.38 }}
                             className="flex items-end justify-between"
                         >
                             <div className="space-y-0.5">
-                                <p
-                                    className="text-[10px] font-bold tracking-[0.18em] uppercase mb-1"
-                                    style={{ color: "rgba(251,191,36,0.55)" }}
-                                >
+                                <p className="text-[10px] font-bold tracking-[0.18em] uppercase mb-1" style={{ color: "rgba(251,191,36,0.55)" }}>
                                     Scheduled
                                 </p>
-                                <h2
-                                    className="text-3xl font-black tracking-[-0.025em]"
-                                    style={{ color: "#f0f0f4" }}
-                                >
+                                <h2 className="text-3xl font-black tracking-[-0.025em]" style={{ color: "#f0f0f4" }}>
                                     Your Interviews
                                 </h2>
-                                <p className="text-[12px] text-zinc-600">
-                                    View and join your scheduled sessions
-                                </p>
+                                <p className="text-[12px] text-zinc-600">View and join your scheduled sessions</p>
                             </div>
 
                             {interviews && interviews.length > 0 && (
@@ -235,14 +215,12 @@ export default function Home() {
                             )}
                         </motion.div>
 
-                        {/* divider */}
                         <motion.div
                             variants={fadeUp}
                             className="h-px w-full"
                             style={{ background: "linear-gradient(90deg, rgba(251,191,36,0.25), rgba(255,255,255,0.04) 60%, transparent)" }}
                         />
 
-                        {/* grid / states */}
                         {interviews === undefined ? (
                             <motion.div variants={fadeUp} className="flex justify-center py-24">
                                 <div className="relative flex items-center justify-center w-16 h-16">
@@ -271,16 +249,10 @@ export default function Home() {
                                 ))}
                             </motion.div>
                         ) : (
-                            <motion.div
-                                variants={fadeUp}
-                                className="flex flex-col items-center justify-center py-28 gap-4"
-                            >
+                            <motion.div variants={fadeUp} className="flex flex-col items-center justify-center py-28 gap-4">
                                 <div
                                     className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
-                                    style={{
-                                        background: "rgba(251,191,36,0.06)",
-                                        border: "1px solid rgba(251,191,36,0.12)",
-                                    }}
+                                    style={{ background: "rgba(251,191,36,0.06)", border: "1px solid rgba(251,191,36,0.12)" }}
                                 >
                                     📅
                                 </div>

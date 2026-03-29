@@ -4,7 +4,7 @@ import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./globals.css";
 import ConvexClerkProvider from "@/components/providers/ConvexClerkProvider";
 import Navbar from "@/components/Navbar";
-import { Show, SignInButton } from "@clerk/nextjs";
+import { Show, SignInButton, SignUpButton } from "@clerk/nextjs";
 
 const berkshireSwash = Berkshire_Swash({
     variable: "--font-berkshire-swash",
@@ -96,11 +96,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
                                 <p className="text-[11px] text-zinc-700 text-center">
                                     Don&apos;t have an account?{" "}
-                                    <SignInButton mode="modal">
+                                    <SignUpButton mode="modal">
                                         <span className="text-amber-400 cursor-pointer hover:text-amber-300 transition-colors">
                                             Sign up for free
                                         </span>
-                                    </SignInButton>
+                                    </SignUpButton>
                                 </p>
                             </div>
                         </div>
