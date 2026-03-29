@@ -1,90 +1,48 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useUserRole } from "@/hooks/useUserRole";
 import LoaderUI from "@/components/LoaderUI";
-import RecordingCard from "@/components/RecordingCard";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { useGetCalls } from "@/hooks/useGetCalls";
-import { CallRecording } from "@stream-io/video-react-sdk";
-import { useEffect, useState } from "react";
+import InterviewScheduleUI from "../schedule/InterviewScheduleUI";
 import { motion } from "framer-motion";
-import { VideoIcon } from "lucide-react";
 
-function RecordingsPage() {
-  const { calls, isLoading } = useGetCalls();
-  const [recordings, setRecordings] = useState<CallRecording[]>([]);
+function SchedulePage() {
+    const router = useRouter();
+    const { isInterviewer, isLoading } = useUserRole();
 
-  useEffect(() => {
-    const fetchRecordings = async () => {
-      if (!calls) return;
-      try {
-        const callData = await Promise.all(calls.map((call) => call.queryRecordings()));
-        const allRecordings = callData.flatMap((call) => call.recordings);
-        setRecordings(allRecordings);
-      } catch (error) {
-        console.log("Error in fetching recordings", error);
-      }
-    };
-    fetchRecordings();
-  }, [calls]);
+    if (isLoading) return <LoaderUI />;
+    if (!isInterviewer) return router.push("/");
 
-  if (isLoading) return <LoaderUI />;
-
-  return (
-    // overflow-hidden stops the page itself from scrolling
-    <div className="h-[calc(100vh-70px)] flex flex-col overflow-hidden">
-
-      {/* Header — fixed height, never scrolls */}
-      <div className="container max-w-7xl mx-auto px-6 pt-10 pb-4 shrink-0">
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          <h1 className="text-4xl font-bold tracking-tight text-white">Recordings</h1>
-          <p className="text-slate-500 mt-1 text-[17px]">
-            {recordings.length} {recordings.length === 1 ? "recording" : "recordings"} available
-          </p>
-        </motion.div>
-      </div>
-
-      {/* ScrollArea takes all remaining height — only this scrolls */}
-      <div className="flex-1 overflow-hidden container max-w-7xl mx-auto px-6">
-        <ScrollArea className="h-full">
-          {recordings.length > 0 ? (
+    return (
+        <div className="relative min-h-[calc(100vh-68px)] overflow-hidden">
+            {/* animated orbs — smaller on mobile */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.15, duration: 0.4 }}
-              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 pb-6"
-            >
-              {recordings.map((r, i) => (
-                <motion.div
-                  key={r.end_time}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.06, duration: 0.3 }}
-                >
-                  <RecordingCard recording={r} />
-                </motion.div>
-              ))}
-            </motion.div>
-          ) : (
+                className="pointer-events-none absolute top-[-40px] sm:top-[-60px] right-[5%] sm:right-[15%] w-[220px] h-[220px] sm:w-[380px] sm:h-[380px] rounded-full blur-[80px] sm:blur-[110px] opacity-[0.05]"
+                style={{ background: "radial-gradient(circle, #fbbf24, transparent)" }}
+                animate={{ y: [0, 25, 0], x: [0, -12, 0] }}
+                transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+            />
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col items-center justify-center h-[400px] gap-4"
-            >
-              <div className="p-4 rounded-2xl bg-[#13131e] border border-white/8">
-                <VideoIcon className="size-8 text-slate-500" />
-              </div>
-              <p className="text-slate-500 text-sm">No recordings available yet</p>
-            </motion.div>
-          )}
-        </ScrollArea>
-      </div>
-    </div>
-  );
+                className="pointer-events-none absolute bottom-[5%] left-[2%] sm:left-[8%] w-[160px] h-[160px] sm:w-[260px] sm:h-[260px] rounded-full blur-[60px] sm:blur-[80px] opacity-[0.04]"
+                style={{ background: "radial-gradient(circle, #f59e0b, transparent)" }}
+                animate={{ y: [0, -18, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+            />
+
+            {/* grid */}
+            <div
+                className="pointer-events-none absolute inset-0 opacity-[0.018]"
+                style={{
+                    backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
+                    backgroundSize: "48px 48px",
+                }}
+            />
+
+            <div className="relative z-10">
+                <InterviewScheduleUI />
+            </div>
+        </div>
+    );
 }
 
-export default RecordingsPage;
+export default SchedulePage;

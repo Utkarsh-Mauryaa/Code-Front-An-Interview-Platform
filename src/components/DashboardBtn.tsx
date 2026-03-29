@@ -12,7 +12,7 @@ function DashboardBtn() {
             <motion.div
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
-                className="relative flex items-center gap-2 px-4 py-2 rounded-xl cursor-pointer overflow-hidden"
+                className="relative flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl cursor-pointer overflow-hidden"
                 style={{
                     background: "rgba(251,191,36,0.07)",
                     border: "1px solid rgba(251,191,36,0.20)",
@@ -31,9 +31,9 @@ function DashboardBtn() {
                     el.style.boxShadow = "none"
                 }}
             >
-                <SparklesIcon className="size-3.5 text-amber-400" strokeWidth={1.8} />
+                <SparklesIcon className="size-3 sm:size-3.5 text-amber-400" strokeWidth={1.8} />
                 <span
-                    className="text-[16px] font-bold tracking-wide"
+                    className="text-[12px] sm:text-[13px] font-bold tracking-wide"
                     style={{ color: "rgba(251,191,36,0.90)" }}
                 >
                     Dashboard

@@ -81,7 +81,7 @@ export default function Home() {
                 style={{ background: "radial-gradient(circle, #fbbf24, transparent)" }}
             />
 
-            <div className="relative z-10 max-w-[1400px] mx-auto px-6 py-10 space-y-10">
+            <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8 sm:space-y-10">
 
                 {/* HERO */}
                 <motion.div
@@ -89,7 +89,7 @@ export default function Home() {
                     initial="hidden"
                     animate="show"
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="relative overflow-hidden rounded-2xl px-8 py-9"
+                    className="relative overflow-hidden rounded-2xl px-5 py-7 sm:px-8 sm:py-9"
                     style={{
                         background: "rgba(255,255,255,0.03)",
                         backdropFilter: "blur(18px)",
@@ -104,11 +104,11 @@ export default function Home() {
 
                     <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div className="space-y-2">
-                            <p className="text-[10px] font-bold tracking-[0.22em] uppercase" style={{ color: "rgba(251,191,36,0.65)" }}>
+                            <p className="text-[10px] font-bold tracking-[0.22em]" style={{ color: "rgba(251,191,36,0.65)" }}>
                                 {isInterviewer ? "Interviewer Dashboard" : "Candidate Portal"}
                             </p>
                             <h1
-                                className="text-5xl font-black tracking-[-0.03em] leading-none"
+                                className="text-4xl sm:text-5xl font-black tracking-[-0.03em] leading-none"
                                 style={{
                                     background: "linear-gradient(135deg, #f0f0f4 0%, #a0a0b0 100%)",
                                     WebkitBackgroundClip: "text",
@@ -156,7 +156,7 @@ export default function Home() {
                             transition={{ duration: 0.4, delay: 0.12 }}
                             className="flex items-center gap-3"
                         >
-                            <p className="text-[10px] font-bold tracking-[0.18em] uppercase" style={{ color: "rgba(255,255,255,0.20)" }}>
+                            <p className="text-[10px] font-bold tracking-[0.18em]" style={{ color: "rgba(255,255,255,0.20)" }}>
                                 Quick Actions
                             </p>
                             <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
@@ -188,7 +188,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-                            className="relative overflow-hidden rounded-2xl p-6 w-[50%] m-auto"
+                            className="relative overflow-hidden rounded-2xl p-5 sm:p-6 w-full max-w-2xl mx-auto"
                             style={{
                                 background: "rgba(255,255,255,0.025)",
                                 backdropFilter: "blur(16px)",
@@ -208,7 +208,7 @@ export default function Home() {
                                 style={{ background: "radial-gradient(circle, #fbbf24, transparent)" }}
                             />
 
-                            <div className="relative flex flex-col sm:flex-row sm:items-center gap-4">
+                            <div className="relative flex flex-col gap-4">
                                 {/* label + icon */}
                                 <div className="flex items-center gap-3 shrink-0">
                                     <div
@@ -227,8 +227,8 @@ export default function Home() {
                                 </div>
 
                                 {/* input + button */}
-                                <div className="flex-1 flex flex-col gap-2">
-                                    <div className="flex gap-2">
+                                <div className="flex flex-col gap-2">
+                                    <div className="flex flex-col sm:flex-row gap-2">
                                         <div className="relative flex-1">
                                             <Link2Icon
                                                 className="absolute left-3.5 top-1/2 -translate-y-1/2 size-3.5 text-zinc-600 pointer-events-none"
@@ -277,7 +277,7 @@ export default function Home() {
                                             whileHover={{ scale: 1.03 }}
                                             whileTap={{ scale: 0.97 }}
                                             onClick={handleJoinByLink}
-                                            className="btn-emerald shrink-0 px-5 py-2.5 rounded-xl text-[13px] font-semibold flex items-center gap-2"
+                                            className="btn-emerald w-full sm:w-auto shrink-0 px-5 py-2.5 rounded-xl text-[13px] font-semibold flex items-center justify-center gap-2"
                                         >
                                             Join
                                             <ArrowRightIcon className="size-3.5" />
@@ -305,10 +305,10 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             transition={{ duration: 0.38 }}
-                            className="flex items-end justify-between"
+                            className="flex flex-wrap items-end justify-between gap-3"
                         >
                             <div className="space-y-0.5">
-                                <p className="text-[10px] font-bold tracking-[0.18em] uppercase mb-1" style={{ color: "rgba(251,191,36,0.55)" }}>
+                                <p className="text-[10px] font-bold tracking-[0.18em] mb-1" style={{ color: "rgba(251,191,36,0.55)" }}>
                                     Scheduled
                                 </p>
                                 <h2 className="text-3xl font-black tracking-[-0.025em]" style={{ color: "#f0f0f4" }}>
@@ -354,7 +354,7 @@ export default function Home() {
                                 </div>
                             </motion.div>
                         ) : interviews.length > 0 ? (
-                            <motion.div variants={stagger} className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                            <motion.div variants={stagger} className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
                                 {interviews.map((interview) => (
                                     <motion.div
                                         key={interview._id}

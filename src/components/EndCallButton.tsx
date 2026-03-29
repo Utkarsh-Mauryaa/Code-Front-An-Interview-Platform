@@ -17,15 +17,22 @@ function EndCallButton() {
     streamCallId: call?.id || "",
   });
 
-  if (!call || !interview) return null;
+  if (!call) return null;
 
   const isMeetingOwner = localParticipant?.userId === call?.state?.createdBy?.id;
+
+  // Only the creator sees this — works for both instant calls and scheduled interviews
   if (!isMeetingOwner) return null;
 
   const endCall = async () => {
     try {
       await call.endCall();
-      await updateInterviewStatus({ id: interview._id, status: "completed" });
+
+      // Only update status if this is a scheduled interview (has a Convex record)
+      if (interview) {
+        await updateInterviewStatus({ id: interview._id, status: "completed" });
+      }
+
       router.push("/");
       toast.success("Meeting ended for everyone!");
     } catch (error) {

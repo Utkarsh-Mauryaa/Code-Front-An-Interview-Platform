@@ -2,7 +2,6 @@
 
 import { CodeIcon } from "lucide-react"
 import Link from "next/link"
-import { ModeToggle } from "./ModeToggle"
 import { useAuth, UserButton } from "@clerk/nextjs"
 import DashboardBtn from "./DashboardBtn"
 import { motion } from "framer-motion"
@@ -24,32 +23,31 @@ const Navbar = () => {
                 boxShadow: "0 1px 0 rgba(255,255,255,0.04), 0 8px 32px rgba(0,0,0,0.4)",
             }}
         >
-            {/* shimmer top line */}
             <div className="shimmer-line absolute top-0 left-0 right-0 h-[1.5px]" />
 
-            <div className="flex h-[68px] items-center px-6 max-w-[1400px] mx-auto">
+            <div className="flex h-14 sm:h-[68px] items-center px-4 sm:px-6 max-w-[1400px] mx-auto">
 
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-3 group mr-8 shrink-0">
+                <Link href="/" className="flex items-center gap-2 sm:gap-3 group mr-4 sm:mr-8 shrink-0">
                     <div className="relative">
                         <div
                             className="absolute inset-0 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                             style={{ background: "rgba(251,191,36,0.45)", transform: "scale(1.4)" }}
                         />
                         <div
-                            className="relative w-9 h-9 rounded-xl flex items-center justify-center"
+                            className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center"
                             style={{
                                 background: "linear-gradient(135deg, rgba(251,191,36,0.2) 0%, rgba(245,158,11,0.15) 100%)",
                                 border: "1px solid rgba(251,191,36,0.25)",
                             }}
                         >
-                            <CodeIcon className="size-[18px] text-amber-400" strokeWidth={2.2} />
+                            <CodeIcon className="size-4 sm:size-[18px] text-amber-400" strokeWidth={2.2} />
                         </div>
                     </div>
 
-                    <div className="flex flex-col leading-none gap-2">
+                    <div className="flex flex-col leading-none">
                         <span
-                            className="font-black text-[20px] tracking-[-0.02em]"
+                            className="font-black text-[16px] sm:text-[20px] tracking-[-0.02em]"
                             style={{
                                 background: "linear-gradient(135deg, #fcd34d 0%, #fbbf24 45%, #f59e0b 100%)",
                                 WebkitBackgroundClip: "text",
@@ -60,7 +58,8 @@ const Navbar = () => {
                         >
                             CodeSync
                         </span>
-                        <span className="text-[15px] tracking-[0.18em] text-zinc-600 font-medium">
+                        {/* hide subtitle on very small screens */}
+                        <span className="hidden sm:block text-[10px] tracking-[0.18em] text-zinc-600 font-medium mt-2">
                             Interview Platform
                         </span>
                     </div>
@@ -72,18 +71,18 @@ const Navbar = () => {
                         initial={{ opacity: 0, x: 16 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.4, delay: 0.18, ease: "easeOut" }}
-                        className="ml-auto flex items-center gap-3"
+                        className="ml-auto flex items-center gap-2 sm:gap-3"
                     >
                         <DashboardBtn />
 
-                        <div className="w-px h-5 mx-1" style={{ background: "rgba(255,255,255,0.08)" }} />
+                        <div className="w-px h-5 mx-0.5 sm:mx-1" style={{ background: "rgba(255,255,255,0.08)" }} />
 
                         <div className="relative">
                             <div
-                                className="absolute inset-[-3px] rounded-full h-9 top-[-4.1px]"
-                                style={{ border: "4px solid rgba(252, 199, 65, 0.2)" }}
+                                className="absolute inset-[-3px] rounded-full h-[35px]"
+                                style={{ border: "2px solid rgba(252,199,65,0.2)" }}
                             />
-                            <UserButton/>
+                            <UserButton />
                         </div>
                     </motion.div>
                 )}

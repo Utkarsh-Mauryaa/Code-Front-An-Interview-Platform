@@ -43,7 +43,7 @@ function LoaderUI() {
             </div>
 
             <p
-                className="text-[11px] tracking-[0.2em] uppercase font-semibold"
+                className="text-[11px] tracking-[0.2em] font-semibold"
                 style={{ color: "rgba(251,191,36,0.45)" }}
             >
                 Loading
