@@ -117,7 +117,7 @@ export default function RoleSelection() {
                     </p>
                 </motion.div>
 
-                {/* role cards */}
+                
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -207,7 +207,7 @@ export default function RoleSelection() {
                                     {role.description}
                                 </p>
 
-                                {/* perks */}
+                               
                                 <ul className="space-y-1.5">
                                     {role.perks.map((perk) => (
                                         <li key={perk} className="flex items-center gap-2 text-[13px]" style={{ color: "rgba(255,255,255,0.35)" }}>

@@ -39,7 +39,7 @@ import { Button } from "./ui/button";
 import EndCallButton from "./EndCallButton";
 import CodeEditor from "./CodeEditor";
 
-// ── Reusable control button ───────────────────────────────────────────────────
+// ── Reusable control button
 function CtrlBtn({
   onClick,
   active = false,
@@ -86,7 +86,7 @@ function CtrlBtn({
   );
 }
 
-// ── Custom 2-row controls for narrow screens ──────────────────────────────────
+// ── Custom 2-row controls for narrow screens
 function NarrowControls({
   onLeave,
   showParticipants,
@@ -146,11 +146,11 @@ function NarrowControls({
         </CtrlBtn>
       </div>
 
-      {/* ── Row 2: layout switcher · leave · end call ── */}
+      
       <div className="flex items-center gap-2">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            {/* wrap in div so asChild doesn't clash with CtrlBtn motion.button */}
+            
             <div>
               <CtrlBtn onClick={() => {}} title="Switch layout">
                 <LayoutListIcon className="size-[18px]" />
@@ -180,14 +180,14 @@ function NarrowControls({
           <PhoneIcon className="size-[18px]" />
         </CtrlBtn>
 
-        {/* EndCallButton only shown to interviewer — keep as-is */}
+        
         <EndCallButton />
       </div>
     </div>
   );
 }
 
-// ── MeetingRoom ───────────────────────────────────────────────────────────────
+
 function MeetingRoom() {
   const router = useRouter();
   const call = useCall();
@@ -200,7 +200,7 @@ function MeetingRoom() {
   const { useCallCallingState } = useCallStateHooks();
   const callingState = useCallCallingState();
 
-  // Watch viewport width
+  
   useEffect(() => {
     const check = () => setIsNarrow(window.innerWidth < 854);
     check();
@@ -208,7 +208,7 @@ function MeetingRoom() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  // Listen for call ended event
+  
   useEffect(() => {
     if (!call) return;
     const handleCallEnded = () => {
@@ -292,7 +292,7 @@ function MeetingRoom() {
     >
       <ResizablePanelGroup orientation="horizontal" className="h-full">
 
-        {/* ── Video panel ── */}
+        
         <ResizablePanel maxSize={'900px'} minSize={'385px'} className="relative bg-[#0d0d14]">
           <div className="absolute inset-0">
             {layout === "grid" ? <PaginatedGridLayout /> : <SpeakerLayout />}
@@ -320,7 +320,7 @@ function MeetingRoom() {
             className="absolute bottom-4 left-0 right-0 z-10 flex justify-center px-2"
           >
             {isNarrow ? (
-              // ── NARROW (<854px): custom 2-row grid ──
+              
               <NarrowControls
                 onLeave={() => router.push("/")}
                 showParticipants={showParticipants}
@@ -329,7 +329,7 @@ function MeetingRoom() {
                 onSetLayout={setLayout}
               />
             ) : (
-              // ── WIDE (≥854px): original single-row layout ──
+              
               <div className="flex items-center gap-2 flex-wrap justify-center px-4">
                 <div className="flex items-center gap-2 bg-[#0d0d14]/80 backdrop-blur-md border border-white/10 rounded-2xl px-3 py-2">
                   <CallControls onLeave={() => router.push("/")} />

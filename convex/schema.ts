@@ -9,7 +9,7 @@ export default defineSchema({
         role: v.union(
             v.literal("candidate"),
             v.literal("interviewer"),
-            v.literal("pending")   // set on first sign-in, replaced after role selection
+            v.literal("pending")
         ),
         clerkId: v.string(),
     }).index("by_clerk_id", ["clerkId"]),

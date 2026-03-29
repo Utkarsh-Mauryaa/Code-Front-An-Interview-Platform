@@ -33,7 +33,7 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
 
     return (
         <div className="min-h-[calc(100vh-56px)] sm:min-h-[calc(100vh-68px)] bg-[#0a0a0f] flex items-center justify-center p-4 sm:p-6">
-            {/* background glows */}
+            
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-1/4 left-1/3 w-64 sm:w-96 h-64 sm:h-96 bg-amber-400/3 rounded-full blur-3xl" />
                 <div className="absolute bottom-1/4 right-1/3 w-48 sm:w-64 h-48 sm:h-64 bg-blue-500/3 rounded-full blur-3xl" />
@@ -58,7 +58,7 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
                             <p className="text-xs text-slate-500 mt-0.5">Make sure you look good!</p>
                         </div>
 
-                        {/* shorter preview on mobile so settings card is visible */}
+                        
                         <div className="flex-1 min-h-[200px] sm:min-h-[300px] md:min-h-[360px] rounded-xl overflow-hidden bg-[#0d0d14] border border-white/8 relative">
                             <style>{`
                                 .str-video__video-preview-container,

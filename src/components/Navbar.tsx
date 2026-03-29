@@ -65,7 +65,7 @@ const Navbar = () => {
                     </div>
                 </Link>
 
-                {/* Nav actions */}
+                
                 {isSignedIn && (
                     <motion.div
                         initial={{ opacity: 0, x: 16 }}

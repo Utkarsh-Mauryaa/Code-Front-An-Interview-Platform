@@ -14,9 +14,9 @@ export const syncUser = mutation({
             .withIndex("by_clerk_id", (q) => q.eq("clerkId", args.clerkId))
             .first();
 
-        if (existingUser) return; // already exists — never overwrite
+        if (existingUser) return;
 
-        // insert with "pending" role — user must select role on first login
+        
         return await ctx.db.insert("users", {
             ...args,
             role: "pending",
@@ -24,7 +24,7 @@ export const syncUser = mutation({
     },
 });
 
-// Called once after role selection — enforces immutability
+
 export const updateUserRole = mutation({
     args: {
         clerkId: v.string(),
@@ -38,7 +38,7 @@ export const updateUserRole = mutation({
 
         if (!user) throw new Error("User not found");
 
-        // CRITICAL: role can only be set if currently pending
+        
         if (user.role !== "pending") {
             throw new Error("Role has already been set and cannot be changed");
         }

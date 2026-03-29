@@ -12,23 +12,23 @@ export default function ConvexClerkProvider({ children }: { children: React.Reac
             publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
             appearance={{
                 variables: {
-                    // base colours
+                    
                     colorBackground:        "#0e0e14",
                     colorInputBackground:   "#16161f",
                     colorInputText:         "#f0f0f4",
                     colorText:              "#f0f0f4",
                     colorTextSecondary:     "#71717a",
-                    colorPrimary:           "#fbbf24",   // amber-400
+                    colorPrimary:           "#fbbf24",   
                     colorDanger:            "#f87171",
 
-                    // shape
+                    
                     borderRadius:           "0.875rem",
 
-                    // font — inherits your Berkshire Swash via CSS var
+                    
                     fontFamily:             "var(--font-berkshire-swash), sans-serif",
                 },
                 elements: {
-                    // ── modal / card shell ──────────────────────────────
+                    
                     card: {
                         background:    "rgba(14, 14, 20, 0.95)",
                         backdropFilter:"blur(20px)",
@@ -43,7 +43,7 @@ export default function ConvexClerkProvider({ children }: { children: React.Reac
                         background: "transparent",
                     },
 
-                    // ── header ──────────────────────────────────────────
+                   
                     headerTitle: {
                         color:      "#f0f0f4",
                         fontWeight: "800",
@@ -52,7 +52,7 @@ export default function ConvexClerkProvider({ children }: { children: React.Reac
                         color: "#71717a",
                     },
 
-                    // ── form inputs ─────────────────────────────────────
+                    
                     formFieldInput: {
                         background:  "rgba(255,255,255,0.04)",
                         border:      "1px solid rgba(255,255,255,0.09)",
@@ -66,7 +66,7 @@ export default function ConvexClerkProvider({ children }: { children: React.Reac
                         fontWeight:"600",
                     },
 
-                    // ── primary button ──────────────────────────────────
+                    
                     formButtonPrimary: {
                         background:    "linear-gradient(135deg, #fcd34d 0%, #fbbf24 55%, #f59e0b 100%)",
                         boxShadow:     "0 0 20px rgba(251,191,36,0.30)",
@@ -76,7 +76,7 @@ export default function ConvexClerkProvider({ children }: { children: React.Reac
                         border:        "none",
                     },
 
-                    // ── social / oauth buttons ──────────────────────────
+                    
                     socialButtonsBlockButton: {
                         background:   "rgba(255,255,255,0.04)",
                         border:       "1px solid rgba(255,255,255,0.08)",
@@ -87,7 +87,7 @@ export default function ConvexClerkProvider({ children }: { children: React.Reac
                         color: "#d4d4d8",
                     },
 
-                    // ── divider ─────────────────────────────────────────
+                    
                     dividerLine: {
                         background: "rgba(255,255,255,0.07)",
                     },
@@ -95,7 +95,7 @@ export default function ConvexClerkProvider({ children }: { children: React.Reac
                         color: "#52525b",
                     },
 
-                    // ── footer links ────────────────────────────────────
+                    
                     footerActionLink: {
                         color: "#fbbf24",
                     },
@@ -103,7 +103,7 @@ export default function ConvexClerkProvider({ children }: { children: React.Reac
                         color: "#52525b",
                     },
 
-                    // ── identity preview (logged-in state in modal) ─────
+                    
                     identityPreviewText: {
                         color: "#f0f0f4",
                     },
