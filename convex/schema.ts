@@ -6,7 +6,11 @@ export default defineSchema({
         name: v.string(),
         email: v.string(),
         image: v.optional(v.string()),
-        role: v.union(v.literal("candidate"), v.literal("interviewer")), // candidate, or interviewer
+        role: v.union(
+            v.literal("candidate"),
+            v.literal("interviewer"),
+            v.literal("pending")   // set on first sign-in, replaced after role selection
+        ),
         clerkId: v.string(),
     }).index("by_clerk_id", ["clerkId"]),
 
@@ -16,7 +20,7 @@ export default defineSchema({
         startTime: v.number(),
         endTime: v.optional(v.number()),
         status: v.string(),
-        streamCallId: v.string(), // will be used to join interview
+        streamCallId: v.string(),
         candidateId: v.string(),
         interviewerIds: v.array(v.string()),
     })

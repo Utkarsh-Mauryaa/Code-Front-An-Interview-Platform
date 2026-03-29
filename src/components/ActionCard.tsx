@@ -16,7 +16,7 @@ const ActionCard = ({ action, onClick }: { action: QuickActionType; onClick: () 
                 border: "1px solid rgba(255,255,255,0.07)",
                 boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
                 transition: "border-color 0.25s ease, box-shadow 0.25s ease",
-                minHeight: "160px",
+                minHeight: "140px",
             }}
             onMouseEnter={e => {
                 const el = e.currentTarget as HTMLElement
@@ -29,44 +29,34 @@ const ActionCard = ({ action, onClick }: { action: QuickActionType; onClick: () 
                 el.style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.06)"
             }}
         >
-            {/* gradient wash from action config */}
-            <div
-                className={`absolute inset-0 bg-gradient-to-br ${action.gradient} opacity-[0.07] group-hover:opacity-[0.13] transition-opacity duration-400`}
-            />
-
-            {/* top-right corner glow orb */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${action.gradient} opacity-[0.07] group-hover:opacity-[0.13] transition-opacity duration-400`} />
             <div
                 className="absolute -top-8 -right-8 w-28 h-28 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{ background: "rgba(251,191,36,0.18)" }}
             />
 
-            {/* content */}
-            <div className="relative p-6 flex flex-col gap-5 h-full">
-                {/* icon */}
+            {/* content — tighter padding on mobile */}
+            <div className="relative p-4 sm:p-6 flex flex-col gap-3 sm:gap-5 h-full">
                 <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.30)]"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.30)]"
                     style={{
                         background: "rgba(251,191,36,0.10)",
                         border: "1px solid rgba(251,191,36,0.20)",
                     }}
                 >
-                    <action.icon className="w-5 h-5 text-amber-400" strokeWidth={1.8} />
+                    <action.icon className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" strokeWidth={1.8} />
                 </div>
 
-                {/* text */}
-                <div className="space-y-1.5">
-                    <h3
-                        className="font-bold text-[25px] tracking-[-0.01em] text-zinc-100 group-hover:text-amber-300 transition-colors duration-200"
-                    >
+                <div className="space-y-1 sm:space-y-1.5">
+                    <h3 className="font-bold text-[14px] sm:text-[15px] tracking-[-0.01em] text-zinc-100 group-hover:text-amber-300 transition-colors duration-200">
                         {action.title}
                     </h3>
-                    <p className="text-[16px] leading-relaxed text-zinc-500">
+                    <p className="text-[12px] sm:text-[13px] leading-relaxed text-zinc-500">
                         {action.description}
                     </p>
                 </div>
             </div>
 
-            {/* bottom sweep line */}
             <div
                 className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500 ease-out"
                 style={{ background: "linear-gradient(90deg, rgba(251,191,36,0.8), rgba(245,158,11,0.4), transparent)" }}

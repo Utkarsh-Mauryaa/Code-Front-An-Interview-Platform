@@ -4,7 +4,7 @@ import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./globals.css";
 import ConvexClerkProvider from "@/components/providers/ConvexClerkProvider";
 import Navbar from "@/components/Navbar";
-import { Show, SignInButton } from "@clerk/nextjs";
+import { Show, SignInButton, SignUpButton } from "@clerk/nextjs";
 
 const berkshireSwash = Berkshire_Swash({
     variable: "--font-berkshire-swash",
@@ -23,18 +23,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className={`${berkshireSwash.variable} font-sans antialiased`}>
                 <ConvexClerkProvider>
                     <Show when="signed-in">
-                        {/* Authenticated — show full app */}
                         <div className="min-h-screen flex flex-col">
                             <Navbar />
-                            <main className="flex-1">
-                                {children}
-                            </main>
+                            <main className="flex-1">{children}</main>
                         </div>
                     </Show>
 
                     <Show when="signed-out">
-                        {/* Not authenticated — full-page sign-in prompt */}
-                        <div className="min-h-screen flex flex-col items-center justify-center gap-6"
+                        <div
+                            className="min-h-screen flex flex-col items-center justify-center gap-6 px-4"
                             style={{
                                 background: "radial-gradient(ellipse 100% 55% at 50% 0%, rgba(251,191,36,0.07) 0%, transparent 60%), #0a0a0f",
                             }}
@@ -42,16 +39,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                             {/* logo */}
                             <div className="flex flex-col items-center gap-3 mb-2">
                                 <div
-                                    className="w-14 h-14 rounded-2xl flex items-center justify-center"
+                                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center"
                                     style={{
                                         background: "rgba(251,191,36,0.10)",
                                         border: "1px solid rgba(251,191,36,0.22)",
                                     }}
                                 >
-                                    <span className="text-2xl">{"</>"}</span>
+                                    <span className="text-xl sm:text-2xl">{"</>"}</span>
                                 </div>
                                 <h1
-                                    className="text-3xl font-black tracking-tight"
+                                    className="text-2xl sm:text-3xl font-black tracking-tight"
                                     style={{
                                         background: "linear-gradient(135deg, #fcd34d 0%, #fbbf24 50%, #f59e0b 100%)",
                                         WebkitBackgroundClip: "text",
@@ -61,14 +58,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                 >
                                     CodeSync
                                 </h1>
-                                <p className="text-sm text-zinc-500 tracking-wide">
+                                <p className="text-xs sm:text-sm text-zinc-500 tracking-wide">
                                     Technical Interview Platform
                                 </p>
                             </div>
 
                             {/* glass card */}
                             <div
-                                className="w-full max-w-sm rounded-2xl p-8 flex flex-col items-center gap-5"
+                                className="w-full max-w-[340px] sm:max-w-sm rounded-2xl p-6 sm:p-8 flex flex-col items-center gap-5"
                                 style={{
                                     background: "rgba(255,255,255,0.03)",
                                     backdropFilter: "blur(16px)",
@@ -77,30 +74,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                 }}
                             >
                                 <div className="text-center space-y-1">
-                                    <h2 className="text-lg font-bold text-zinc-100">
-                                        Welcome back
-                                    </h2>
-                                    <p className="text-xs text-zinc-500">
+                                    <h2 className="text-base sm:text-lg font-bold text-zinc-100">Welcome back</h2>
+                                    <p className="text-[11px] sm:text-xs text-zinc-500">
                                         Sign in to access your interviews and recordings
                                     </p>
                                 </div>
 
-                                {/* Clerk SignInButton — renders a plain <a> by default, styled as our amber button */}
                                 <SignInButton mode="modal">
-                                    <button
-                                        className="btn-emerald w-full py-3 rounded-xl text-[13px] tracking-wide"
-                                    >
+                                    <button className="btn-emerald w-full py-3 rounded-xl text-[13px] tracking-wide">
                                         Sign In
                                     </button>
                                 </SignInButton>
 
                                 <p className="text-[11px] text-zinc-700 text-center">
                                     Don&apos;t have an account?{" "}
-                                    <SignInButton mode="modal">
+                                    <SignUpButton mode="modal">
                                         <span className="text-amber-400 cursor-pointer hover:text-amber-300 transition-colors">
                                             Sign up for free
                                         </span>
-                                    </SignInButton>
+                                    </SignUpButton>
                                 </p>
                             </div>
                         </div>
