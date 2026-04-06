@@ -13,7 +13,7 @@ const berkshireSwash = Berkshire_Swash({
 });
 
 export const metadata: Metadata = {
-    title: "CodeSync — Interview Platform",
+    title: "CodeFront — Interview Platform",
     description: "Technical interview platform with live coding and video",
 };
 
@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                         backgroundClip: "text",
                                     }}
                                 >
-                                    CodeSync
+                                    CodeFront
                                 </h1>
                                 <p className="text-xs sm:text-sm text-zinc-500 tracking-wide">
                                     Technical Interview Platform

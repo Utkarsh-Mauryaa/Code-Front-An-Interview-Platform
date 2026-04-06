@@ -107,7 +107,7 @@ function MeetingModal({ isOpen, onClose, title, isJoinMeeting }: MeetingModalPro
                                             strokeWidth={1.8}
                                         />
                                         <input
-                                            placeholder="https://codesync.io/meeting/..."
+                                            placeholder="https://codefront.io/meeting/..."
                                             value={meetingUrl}
                                             onChange={e => setMeetingUrl(e.target.value)}
                                             className="w-full pl-10 pr-4 py-3 rounded-xl text-[13px] text-zinc-200 placeholder:text-zinc-700 outline-none transition-all duration-200"

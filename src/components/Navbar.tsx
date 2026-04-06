@@ -56,7 +56,7 @@ const Navbar = () => {
                                 fontFamily: "var(--font-berkshire-swash), monospace",
                             }}
                         >
-                            CodeSync
+                            CodeFront
                         </span>
                         {/* hide subtitle on very small screens */}
                         <span className="hidden sm:block text-[10px] tracking-[0.18em] text-zinc-600 font-medium mt-2">

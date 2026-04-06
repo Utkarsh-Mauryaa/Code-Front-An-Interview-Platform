@@ -113,7 +113,7 @@ export default function RoleSelection() {
                         }}>.</span>
                     </h1>
                     <p className="text-[14px] text-zinc-500 max-w-sm mx-auto leading-relaxed">
-                        This cannot be changed later. Pick the role that matches how you'll use CodeSync.
+                        This cannot be changed later. Pick the role that matches how you'll use CodeFront.
                     </p>
                 </motion.div>
 

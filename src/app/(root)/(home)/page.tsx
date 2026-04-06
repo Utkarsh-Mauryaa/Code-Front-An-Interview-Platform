@@ -238,7 +238,7 @@ export default function Home() {
                                                 value={joinUrl}
                                                 onChange={e => { setJoinUrl(e.target.value); setJoinError("") }}
                                                 onKeyDown={e => e.key === "Enter" && handleJoinByLink()}
-                                                placeholder="https://codesync.io/meeting/..."
+                                                placeholder="https://codefront.io/meeting/..."
                                                 className="w-full pl-9 pr-9 py-2.5 rounded-xl text-[13px] text-zinc-200 placeholder:text-zinc-700 outline-none transition-all duration-200"
                                                 style={{
                                                     background: "rgba(255,255,255,0.04)",
